@@ -19,5 +19,6 @@ public class ForecastingTest {
         System.out.println();
         System.out.println("Periods Ahead: " + periodsAhead);
         System.out.printf("Forecasted Future Value: %.2f%n", forecast);
+
     }
 }
