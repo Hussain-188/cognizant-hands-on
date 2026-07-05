@@ -3,6 +3,7 @@ package com.cognizant.hands.on;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class MyServiceTest {
@@ -16,5 +17,15 @@ public class MyServiceTest {
         String result = service.fetchData();
 
         assertEquals("Mock Data", result);
+    }
+
+    @Test
+    public void testVerifyInteraction() {
+        ExternalApi mockApi = mock(ExternalApi.class);
+
+        MyService service = new MyService(mockApi);
+        service.fetchData();
+
+        verify(mockApi).getData();
     }
 }
